@@ -1,26 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Profile from './components/Profile'
+import BannerImg from './components/BannerImg'
+import ProfileImg from './components/ProfileImg'
+import ProfileBanner from './components/ProfileBanner'
+import H1 from './components/H1'
+import P from './components/P'
+import WithIconP from './components/WithIconP'
+import Icon from './components/Icon'
 
-function App() {
+import bannerImg from './images/laptop.jpg'
+import profileImg from './images/profile.jpeg'
+import emailIcon from './images/email.svg'
+import phoneIcon from './images/phone.svg'
+import fbIcon from './images/facebook.svg'
+import instaIcon from './images/instagram.svg'
+import youtubeIcon from './images/youtube.svg'
+import linkedinIcon from './images/linkedin.svg'
+import twitterIcon from './images/twitter.svg'
+
+import profileData from './profile.json'
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Switch>
+        <Route exact path={`/banner-img`} render={() => <BannerImg img={bannerImg} />} />
+        <Route exact path={`/profile-img`} render={() => <ProfileImg img={profileImg} />} />
+        <Route exact path={`/h1`} render={() => <H1 text={profileData.name} />} />
+        <Route exact path={`/p`} render={() => <P text={profileData.designation} />} />
+        <Route exact path={`/with-icon-p`} render={() => <WithIconP icon={emailIcon} text={profileData.email} />} />
+        <Route exact path={`/icon`} render={() => <Icon icon={emailIcon} />} />
+        <Route exact path={`/profile-banner`} render={() => <ProfileBanner {...{ bannerImg, profileImg }} />} />
+        <Route exact path={`/profile`} render={() => <Profile {...{
+          bannerImg, profileImg, emailIcon, phoneIcon,
+          fbIcon, instaIcon, youtubeIcon, linkedinIcon, twitterIcon,
+          ...profileData
+        }} />} />
+      </Switch>
+    </Router>
+  )
 }
 
 export default App;
