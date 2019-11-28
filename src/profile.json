@@ -7,5 +7,12 @@
     "strengths": {
         "title": "Strengths",
         "description": "Experienced in various Frontend technologies, libraries, languages, IDEs, Frameworks, tools etc."
-    }
+    },
+    "workExperience": [{
+        "title": "March 2019 - Present",
+        "description": "Diagnal Technologies, Kerala"
+    }, {
+        "title": "May 2016 - February 2019",
+        "description": "Prism Portfolio, Tuticorin — Asset Management Software Services"
+    }]
 }

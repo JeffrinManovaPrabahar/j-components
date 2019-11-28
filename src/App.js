@@ -5,6 +5,8 @@ import BannerImg from './components/BannerImg'
 import ProfileImg from './components/ProfileImg'
 import ProfileBanner from './components/ProfileBanner'
 import Fieldset from './components/Fieldset'
+import Timeline from './components/Timeline'
+import TimelineItem from './components/TimelineItem'
 import H1 from './components/H1'
 import H2 from './components/H2'
 import P from './components/P'
@@ -54,6 +56,8 @@ const App = () => {
             githubImg, nodejsImg, mongodbImg, highchartsImg
           ]
         }} />} />
+        <Route exact path={`/timeline`} render={() => <Timeline {...{ data: profileData.workExperience }} />} />
+        <Route exact path={`/timeline-item`} render={() => <TimelineItem />} />
         <Route exact path={`/profile`} render={() => <Profile {...{
           bannerImg, profileImg, emailIcon, phoneIcon,
           fbIcon, instaIcon, youtubeIcon, linkedinIcon, twitterIcon,
